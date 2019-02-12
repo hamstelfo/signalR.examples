@@ -5,13 +5,15 @@
     <meta charset="utf-8" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/Site.css" rel="stylesheet" type="text/css">
-    <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery-1.9.1.min.js"></script> <!-- IMPORTANTE -->
+    <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery.signalR-2.2.0.min.js"></script> <!-- IMPORTANTE: la base de SignalR de jQuery -->
-    <script src="signalr/hubs"></script> <!-- IMPORTANTE: fichero autogenerado por SignalR para permitirnos usar 
-                                             la sintaxis q vemos en app.js (Ej: chat.client.updateUsers), si no, 
-                                             sería una sintaxis un poco más enrevesada. No es estrictamente necesario,
-                                             pero sí recomendable. -->
+    <script src="signalr/hubs"></script>
+    <!-- IMPORTANTE: fichero autogenerado por SignalR para permitirnos usar
+        la sintaxis q vemos en app.js (Ej: chat.client.updateUsers), si no,
+        sería una sintaxis un poco más enrevesada. No es estrictamente necesario,
+        pero sí recomendable. -->
+    <script src="app/com.js"></script>
     <script src="app/app.js"></script>
 </head>
 <body>
@@ -41,7 +43,20 @@
                         <a class="btn btn-default" id="btnSendMessage">Send!</a>
                     </span>
                 </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="userMessage2" placeholder="Write your jSon message">
+                    <span class="input-group-btn">
+                        <a class="btn btn-default" id="btnSendMessageJSon">Send!</a>
+                    </span>
+                    <span class="input-group-btn">
+                        <a class="btn btn-default" id="btnSendMessageJSonError">Send error!</a>
+                    </span>
+                </div>
             </div>
+        </div>
+        <div class="row alert alert-success" role="alert" style="display:none;" id="theSuccess">            
+        </div>
+        <div class="row alert alert-danger" role="alert" style="display:none;" id="theError">            
         </div>
     </div>
 </body>
