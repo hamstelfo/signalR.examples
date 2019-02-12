@@ -4,9 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace SignalR_Chat.Hubs
 {
+    class JSonMessage
+    {
+        public short type;
+        public string data;
+    }
+
     //Cada vez q un cliente se contecte, se crea una nueva instancia.
     public class ChatHub : Hub // Esta clase que hereda de Hub, nos permite exponer al cliente los métodos que aquí definamos.
     {
@@ -27,6 +34,43 @@ namespace SignalR_Chat.Hubs
             // updateUsers debe estar declarado en el cliente, en este caso...
         }
 
+        public void SendJSon(string message)
+        {
+            JSonMessage json2= new JSonMessage();
+            JSonMessage json;
+            var sender = ConnectedUsers.First(u => u.ID.Equals(Context.ConnectionId));
+            string test;
+            //string json = JsonConvert.SerializeObject(message);
+            //var sender = ConnectedUsers.First(u => u.ID.Equals(Context.ConnectionId));
+            json2.data = "pepepe";
+            json2.type = 2;
+
+            test = JsonConvert.SerializeObject(json2);
+
+            try
+            {
+                // Execute your code
+                json = JsonConvert.DeserializeObject<JSonMessage>(message);
+                Console.WriteLine(json);
+            }
+            catch  
+            {
+                // Handle exception
+                Clients.Client(ConnectedUsers.FirstOrDefault(u => u.ID.Equals(Context.ConnectionId)).ID).showError("Invalid format message");
+                return;
+            }
+            finally
+            {
+                // Cleanup resources
+            }
+
+            Clients.Client(ConnectedUsers.FirstOrDefault(u => u.ID.Equals(Context.ConnectionId)).ID).showOK("This message is valid and processable: " + json.data);
+
+            //Clients.All.broadcastMessage(sender.Username, message);
+            Console.WriteLine(json2);
+            
+
+        }
 
         public void Send(string message)
         {
