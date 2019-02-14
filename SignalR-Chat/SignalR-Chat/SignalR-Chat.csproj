@@ -95,6 +95,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angular\app\app.js" />
+    <Content Include="angular\app\controllers.js" />
+    <Content Include="angular\app\directives.js" />
+    <Content Include="angular\app\services.js" />
+    <Content Include="angular\Content\bootstrap.css" />
+    <Content Include="angular\Content\bootstrap.min.css" />
+    <Content Include="angular\Content\epoch.min.css" />
+    <Content Include="angular\index.html" />
+    <Content Include="angular\Scripts\angular.min.js" />
+    <Content Include="angular\Scripts\bootstrap.js" />
+    <Content Include="angular\Scripts\bootstrap.min.js" />
+    <Content Include="angular\Scripts\d3.min.js" />
+    <Content Include="angular\Scripts\epoch.min.js" />
+    <Content Include="angular\Scripts\jquery-2.1.1.min.js" />
+    <Content Include="angular\Scripts\jquery.signalR.min.js" />
+    <Content Include="angular\Scripts\ng-epoch.js" />
+    <Content Include="angular\Scripts\pie-chart.min.js" />
     <Content Include="app\com.js" />
     <Content Include="Content\Site.css" />
     <Content Include="packages.config" />
